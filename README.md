@@ -80,43 +80,49 @@ The FEV1/FVC ratio helps in diagnosing:
 
 ## ⚙️ How It Works
 
-The spirometer operates based on the principle of measuring airflow during a forced exhalation:
+The spirometer works by measuring airflow during forced exhalation through a systematic process:
 
-- **Initialization**:
-  - Upon startup, the system initializes the LCD, sensors, and awaits user input.
+<div align="center">
 
-- **Test Initiation**:
-  - The user presses a pushbutton to start the spirometry test.
+### 🔄 Spirometer Operation Workflow
 
-- **Exhalation Detection**:
-  - The system monitors the flow sensor. Once airflow is detected (start of exhalation), the measurement process begins.
+```mermaid
+flowchart TD
+    A[Initialization] -->|System Ready| B[Test Initiation]
+    B -->|Button Press| C[Await Exhalation]
+    C -->|Flow Detected| D[Flow Measurement]
+    D -->|Real-time| E[Volume Integration]
+    E -->|At 1 Second Mark| F[Record FEV1]
+    E -->|Continuous| G[Accumulate Total Volume]
+    G -->|Test Complete| H[Record FVC]
+    H --> I[Calculate FEV1/FVC Ratio]
+    I --> J[Display Results]
+```
 
-- **Flow Rate Measurement**:
-  - The flow sensor generates electrical pulses proportional to the rate of airflow. The Arduino counts these pulses over short intervals (e.g., 250ms) to calculate the instantaneous flow rate (Liters/minute or Liters/second).
+</div>
 
-- **Volume Calculation**:
-  - The calculated flow rate is integrated over time to determine the cumulative volume of air exhaled (in milliliters or Liters).
-    - `Volume = Flow Rate × Time Interval`
+| Phase | Description | System Indicators |
+|-------|-------------|-------------------|
+| 🟢 **Ready** | System initialized and awaiting user input | Green LED on, LCD shows "Ready" |
+| 🔴 **Test Active** | Capturing exhalation data | Red LED on, real-time flow displayed |
+| 📊 **Processing** | Calculating parameters | Both LEDs blinking |
+| 🏁 **Complete** | Test finished, results available | Green LED on, buzzer sounds briefly |
 
-- **FEV1 Recording**:
-  - The system precisely records the total volume exhaled at the 1-second mark from the start of exhalation. This is the FEV1.
+### 📈 Key Measurements & Calculations
 
-- **Test Duration**:
-  - The test continues for a predefined duration (typically 6 seconds, as per ATS guidelines for FVC).
-
-- **FVC Recording**:
-  - At the end of the 6-second exhalation period, the total accumulated volume is recorded as the FVC.
-
-- **Ratio Calculation**:
-  - The FEV1/FVC ratio is calculated: `Ratio = (FEV1 / FVC) * 100%`.
-
-- **Results Display**:
-  - Key parameters (FVC, FEV1, FEV1/FVC ratio) are displayed on the LCD and sent to the serial monitor.
-
-- **Feedback**:
-  - Visual (LEDs) and auditory (buzzer) cues guide the user through the test (e.g., start, ongoing, end).
+- **Flow Rate:** `Flow = K × Pulse Frequency` (where K is the sensor calibration factor)
+- **Volume:** `Volume = ∫Flow dt` (practically: sum of flow × time increments)
+- **FEV1:** Volume exhaled at exactly 1 second
+- **FVC:** Total volume exhaled during the test period
+- **FEV1/FVC Ratio:** `(FEV1 / FVC) × 100%`
 
 ## 🚀 Added Feature: Enhanced Data Logging and Visualization
+
+<div align="center">
+
+### 💻 Data Pipeline Architecture
+
+</div>
 
 This project incorporates **real-time data streaming to a connected computer via the serial port**, enabling advanced logging and visualization capabilities. This goes beyond the basic LCD display, offering deeper insights into the respiratory maneuver.
 
