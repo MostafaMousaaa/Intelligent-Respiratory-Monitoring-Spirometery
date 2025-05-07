@@ -2,7 +2,6 @@
 
 <div align="center">
   
-![Arduino Spirometer](./images/spirometer.jpg)
 
 *An affordable digital spirometer solution using Arduino*
 
