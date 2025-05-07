@@ -59,7 +59,7 @@ The FEV1/FVC ratio helps in diagnosing:
 | Obstructive (e.g., COPD, asthma) | < 70% |
 | Restrictive (e.g., pulmonary fibrosis) | Normal or increased (`≥ 70-80%`, but with reduced FVC and FEV1) |
 
-*Note: These are general guidelines. Clinical diagnosis should always be made by a qualified healthcare professional.*
+
 
 ## 🛠️ Components Required
 
@@ -161,7 +161,7 @@ Where $a$ and $b$ are calibration constants determined experimentally.
 
 Temperature correction for gas volumes (BTPS correction):
 
-$$V_{\text{BTPS}} = V_{\text{measured}} \times \frac{310 \text{K}}{273 \text{K} + T_{\text{ambient}}} \times \frac{P_{\text{ambient}} - P_{\text{H2O}}}{P_{\text{ambient}} - 47 \text{mmHg}}$$
+$$V_{\text{BTPS}} = V_{\text{measured}} \times \frac{310\text{ K}}{(273\text{ K} + T_{\text{ambient}})} \times \frac{(P_{\text{ambient}} - P_{\text{H2O}})}{(P_{\text{ambient}} - 47\text{ mmHg})}$$
 
 Where:
 - $T_{\text{ambient}}$ is the ambient temperature in °C
