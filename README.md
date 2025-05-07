@@ -32,9 +32,9 @@ This project presents an Arduino-based digital spirometer designed for measuring
   </p>
 
 </div>
-<div align="center">
+
 https://github.com/user-attachments/assets/9213ecd2-90bc-4221-8fc7-90098d8d4f6e
-</div>
+
 
 ## ✨ Features
 
