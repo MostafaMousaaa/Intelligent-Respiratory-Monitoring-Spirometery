@@ -13,6 +13,7 @@
 ## 📋 Table of Contents
 
 - [Overview](#-overview)
+- [Demonstration](#-demonstration)
 - [Features](#-features)
 - [Clinical Significance](#-clinical-significance)
 - [Components Required](#-components-required)
@@ -21,9 +22,9 @@
 - [How It Works](#️-how-it-works)
 - [Getting Started](#-getting-started)
 - [Code Highlights](#-code-highlights)
-- [Demonstration](#-demonstration)
 - [Important Considerations](#-important-considerations)
 - [Future Enhancements](#-future-enhancements)
+- [Team Members](#-team-members)
 - [Contributing](#-contributing)
 - [License](#-license)
 - [References](#-references)
@@ -32,6 +33,17 @@
 ## 🌟 Overview
 
 This project presents an Arduino-based digital spirometer designed for measuring key lung function parameters. It aims to provide an accessible and cost-effective tool for preliminary respiratory assessment. The system captures and analyzes expiratory airflow to determine vital pulmonary metrics.
+
+## 🎬 Demonstration
+
+<div align="center">
+  <p>
+    <a href="https://github.com/user-attachments/assets/9213ecd2-90bc-4221-8fc7-90098d8d4f6e">
+      <img src="https://github.com/MostafaMousaaa/Intelligent-Respiratory-Monitoring-Spirometery/blob/main/Img.png" alt="Demonstration Video Screenshot" width="600"/>
+    </a><br>
+    <i>Click the image to watch the demonstration video of the spirometer in action.</i>
+  </p>
+</div>
 
 ## ✨ Features
 
@@ -178,17 +190,6 @@ if (fvc_volume > 0) {
 ```
 *Note: The code snippets above are illustrative. Refer to the actual source code for the complete implementation.*
 
-## 🎬 Demonstration
-
-<div align="center">
-  <p>
-    <a href="https://github.com/MostafaMousaaa/Intelligent-Respiratory-Monitoring-Spirometery/blob/main/spirovideo.mp4">
-      <img src="https://github.com/MostafaMousaaa/Intelligent-Respiratory-Monitoring-Spirometery/blob/main/Img.png" alt="Demonstration Video Screenshot" width="600"/>
-    </a><br>
-    <i>Click the image to watch the demonstration video of the spirometer in action.</i>
-  </p>
-</div>
-
 ## 📝 Important Considerations
 
 -   **Hygiene**: Always use a new, clean, or sterilized mouthpiece for each user to prevent cross-contamination. Dispose of used mouthpieces appropriately.
@@ -206,6 +207,16 @@ if (fvc_volume > 0) {
 -   [ ] **Automatic Calibration Routine**: Implement a feature for easier sensor calibration.
 -   [ ] **Battery Power Option**: Add support for portable battery operation.
 -   [ ] **Flow-Volume Loop Display**: If a graphical display is used, attempt to plot the flow-volume loop.
+
+## 👥 Team Members
+
+This project was developed by:
+
+-   Mostafa Mousa
+-   Amaar Yasser
+-   Ahmed Adeil
+-   Zeyad Wael
+-   Hussein Mohamed
 
 ## 🤝 Contributing
 
