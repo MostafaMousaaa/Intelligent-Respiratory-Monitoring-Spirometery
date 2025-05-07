@@ -17,6 +17,7 @@
 - [📊 Clinical Significance](#-clinical-significance)
 - [🛠️ Components Required](#-components-required)
 - [⚙️ How It Works](#️-how-it-works)
+- [🚀 Added Feature: Enhanced Data Logging and Visualization](#-added-feature-enhanced-data-logging-and-visualization)
 
 ## 🌟 Overview
 
@@ -81,18 +82,63 @@ The FEV1/FVC ratio helps in diagnosing:
 
 The spirometer operates based on the principle of measuring airflow during a forced exhalation:
 
-1.  **Initialization**: Upon startup, the system initializes the LCD, sensors, and awaits user input.
-2.  **Test Initiation**: The user presses a pushbutton to start the spirometry test.
-3.  **Exhalation Detection**: The system monitors the flow sensor. Once airflow is detected (start of exhalation), the measurement process begins.
-4.  **Flow Rate Measurement**: The flow sensor generates electrical pulses proportional to the rate of airflow. The Arduino counts these pulses over short intervals (e.g., 250ms) to calculate the instantaneous flow rate (Liters/minute or Liters/second).
-5.  **Volume Calculation**: The calculated flow rate is integrated over time to determine the cumulative volume of air exhaled (in milliliters or Liters).
-    `Volume = Flow Rate × Time Interval`
-6.  **FEV1 Recording**: The system precisely records the total volume exhaled at the 1-second mark from the start of exhalation. This is the FEV1.
-7.  **Test Duration**: The test continues for a predefined duration (typically 6 seconds, as per ATS guidelines for FVC).
-8.  **FVC Recording**: At the end of the 6-second exhalation period, the total accumulated volume is recorded as the FVC.
-9.  **Ratio Calculation**: The FEV1/FVC ratio is calculated: `Ratio = (FEV1 / FVC) * 100%`.
-10. **Results Display**: Key parameters (FVC, FEV1, FEV1/FVC ratio) are displayed on the LCD and sent to the serial monitor.
-11. **Feedback**: Visual (LEDs) and auditory (buzzer) cues guide the user through the test (e.g., start, ongoing, end).
+- **Initialization**:
+  - Upon startup, the system initializes the LCD, sensors, and awaits user input.
+
+- **Test Initiation**:
+  - The user presses a pushbutton to start the spirometry test.
+
+- **Exhalation Detection**:
+  - The system monitors the flow sensor. Once airflow is detected (start of exhalation), the measurement process begins.
+
+- **Flow Rate Measurement**:
+  - The flow sensor generates electrical pulses proportional to the rate of airflow. The Arduino counts these pulses over short intervals (e.g., 250ms) to calculate the instantaneous flow rate (Liters/minute or Liters/second).
+
+- **Volume Calculation**:
+  - The calculated flow rate is integrated over time to determine the cumulative volume of air exhaled (in milliliters or Liters).
+    - `Volume = Flow Rate × Time Interval`
+
+- **FEV1 Recording**:
+  - The system precisely records the total volume exhaled at the 1-second mark from the start of exhalation. This is the FEV1.
+
+- **Test Duration**:
+  - The test continues for a predefined duration (typically 6 seconds, as per ATS guidelines for FVC).
+
+- **FVC Recording**:
+  - At the end of the 6-second exhalation period, the total accumulated volume is recorded as the FVC.
+
+- **Ratio Calculation**:
+  - The FEV1/FVC ratio is calculated: `Ratio = (FEV1 / FVC) * 100%`.
+
+- **Results Display**:
+  - Key parameters (FVC, FEV1, FEV1/FVC ratio) are displayed on the LCD and sent to the serial monitor.
+
+- **Feedback**:
+  - Visual (LEDs) and auditory (buzzer) cues guide the user through the test (e.g., start, ongoing, end).
+
+## 🚀 Added Feature: Enhanced Data Logging and Visualization
+
+This project incorporates **real-time data streaming to a connected computer via the serial port**, enabling advanced logging and visualization capabilities. This goes beyond the basic LCD display, offering deeper insights into the respiratory maneuver.
+
+### Impact on Usability:
+
+*   **Clearer Test Performance Feedback**: Users or supervising personnel can observe the flow-volume loop or volume-time curve as it's being generated on a computer screen. This visual feedback is more intuitive than numerical readouts alone, helping to ensure the test is performed correctly (e.g., forceful start, sustained exhalation).
+*   **Simplified Data Review**: Instead of manually noting down values from the LCD, all relevant data points (time, instantaneous flow, cumulative volume) can be automatically captured and saved to a file (e.g., CSV) for later review.
+
+### Impact on Efficiency:
+
+*   **Streamlined Data Collection**: Automates the process of recording detailed test parameters, reducing manual effort and potential for transcription errors.
+*   **Faster Iteration for Development/Calibration**: During development or calibration, having access to raw sensor data and calculated metrics in real-time on a PC significantly speeds up debugging and fine-tuning the device.
+*   **Batch Analysis Potential**: Logged data can be easily imported into spreadsheet software or data analysis tools for batch processing or trend analysis over multiple tests or users.
+
+### Impact on Clinical Value:
+
+*   **Detailed Respiratory Curve Analysis**: Visualizing the flow-volume loop and volume-time curve allows for more nuanced interpretation beyond just FEV1 and FVC. The shape of these curves can provide additional clues about the nature of a respiratory impairment (e.g., "scooping" in obstructive disease).
+*   **Improved Test Quality Assessment**: Clinicians or researchers can better assess the quality and acceptability of a spirometry maneuver by examining the full data trace, ensuring ATS/ERS criteria (e.g., good start, no cough, satisfactory exhalation duration) are met.
+*   **Longitudinal Monitoring**: By saving test data, it becomes possible to track a patient's lung function over time, which is crucial for managing chronic respiratory diseases and assessing treatment efficacy. While this prototype is not a medical-grade device, this feature demonstrates a pathway towards more robust clinical data management.
+*   **Educational Tool**: The ability to visualize respiratory mechanics in real-time makes it an excellent educational tool for students learning about pulmonary function testing.
+
+This added feature significantly elevates the prototype from a simple measurement device to a more comprehensive respiratory analysis tool, enhancing its utility for educational, research, and preliminary assessment purposes.
 
 ---
 
