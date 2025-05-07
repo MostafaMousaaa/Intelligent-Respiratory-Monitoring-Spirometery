@@ -33,7 +33,8 @@ This project presents an Arduino-based digital spirometer designed for measuring
     <img src="https://github.com/MostafaMousaaa/Intelligent-Respiratory-Monitoring-Spirometery/blob/main/Img.png" alt="Demonstration Video Screenshot" width="600"/>
   </p>
   <p>
-    <video width="600" controls>
+  
+
        https://github.com/user-attachments/assets/9213ecd2-90bc-4221-8fc7-90098d8d4f6e
        
     
