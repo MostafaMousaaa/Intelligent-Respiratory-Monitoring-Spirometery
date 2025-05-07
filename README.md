@@ -1,78 +1,105 @@
-# Arduino Spirometer Project
+# 🫁 Arduino-based Digital Spirometer
 
-A DIY spirometer implementation using Arduino for measuring lung function parameters including FVC, FEV1, and FEV1/FVC ratio.
+<div align="center">
+  
+![Arduino Spirometer](./images/spirometer.jpg)
 
-![Version](https://img.shields.io/badge/version-1.0-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
+*An affordable digital spirometer solution using Arduino*
 
-## Overview
-This project implements an Arduino-based electronic spirometer that measures key lung function parameters including FVC (Forced Vital Capacity), FEV1 (Forced Expiratory Volume in 1 second), and calculates the FEV1/FVC ratio.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Arduino](https://img.shields.io/badge/Arduino-00979D?style=flat&logo=Arduino&logoColor=white)](https://www.arduino.cc/)
+[![Status: Prototype](https://img.shields.io/badge/Status-Prototype-orange)](https://github.com/yourusername/arduino-spirometer)
 
-## Table of Contents
-- [Components](#components)
-- [Circuit Diagram](#circuit-diagram)
-- [How It Works](#how-it-works)
-- [Normal Values Reference](#normal-values-reference)
-- [Typical Spirometry Graphs](#typical-spirometry-graphs)
-- [Installation](#installation)
-- [Clinical Significance](#clinical-significance)
-- [Interpreting Results](#interpreting-results)
-- [Troubleshooting](#troubleshooting)
-- [References]
+</div>
 
-## Components
-- Arduino board
-- Flow sensor (connected to pin 2)
-- Button (connected to pin 3)
-- Red LED (connected to pin 6)
-- Green LED (connected to pin 7)
-- Buzzer (connected to pin 8)
-- Connecting wires
+## 📋 Overview
 
-## Circuit Diagram
+This project implements a digital spirometer using Arduino for measuring and analyzing lung function. It captures important pulmonary metrics including:
 
-## How It Works
-1. Press the button to prepare the device for a test
-2. The red LED will flash and a short beep will sound to indicate readiness
-3. Exhale forcefully into the flow sensor
-4. The device will measure airflow for 6 seconds
-5. When measurement completes, the green LED lights up and a confirmation beep sounds
-6. Results (FVC, FEV1, and FEV1/FVC ratio) are displayed in the serial monitor
-7. System resets after 2 seconds of no flow, ready for the next test
+- **Flow Rate**: Real-time measurement of airflow during exhalation
+- **Volume**: Total exhaled volume (FVC - Forced Vital Capacity)
+- **FEV1**: Forced Expiratory Volume in the first second
+- **FEV1/FVC Ratio**: An important clinical indicator of respiratory health
 
-## Normal Values Reference
+<div align="center">
+  <p>
+    <a href="https://youtu.be/your-video-link-here">
+      <img src="./images/video-thumbnail.jpg" alt="Demonstration Video" width="600"/>
+    </a><br>
+    <i>Click to watch the demonstration video</i>
+  </p>
+</div>
 
-### Adult Male Reference Values
+## 🔧 Components
 
-| Parameter | Normal | Mild | Moderate | Severe |
-|-----------|--------|------|----------|--------|
-| FVC (L)   | >4.0   | 3.0-4.0 | 2.0-3.0 | <2.0   |
-| FEV1 (L)  | >3.0   | 2.0-3.0 | 1.0-2.0 | <1.0   |
-| FEV1/FVC (%) | >75 | 60-75 | 40-60 | <40    |
+- Arduino Uno/Nano
+- Flow sensor with pulse output
+- 16x2 LCD display
+- LEDs (green and red for visual feedback)
+- Buzzer for audio feedback
+- Pushbutton for test initiation
+- Mouthpiece (with hygienic considerations)
 
-### Adult Female Reference Values
+## ⚙️ How It Works
 
-| Parameter | Normal | Mild | Moderate | Severe |
-|-----------|--------|------|----------|--------|
-| FVC (L)   | >3.0   | 2.0-3.0 | 1.5-2.0 | <1.5   |
-| FEV1 (L)  | >2.5   | 1.5-2.5 | 1.0-1.5 | <1.0   |
-| FEV1/FVC (%) | >80 | 65-80 | 45-65 | <45    |
+The spirometer measures airflow during exhalation using a flow sensor that generates pulses proportional to the flow rate. The built-in algorithm:
 
-## Typical Spirometry Graphs
+1. Detects the start of exhalation
+2. Measures flow rate in real-time 
+3. Calculates cumulative volume
+4. Records FEV1 at exactly 1 second
+5. Completes the test after 6 seconds
+6. Calculates the FEV1/FVC ratio
+7. Provides visual and auditory feedback
 
-### Normal Spirogram
+## 📊 Clinical Significance
 
-## Installation
+The FEV1/FVC ratio helps in diagnosing:
 
-## Clinical Significance
-- **FVC**: Total volume of air that can be forcibly exhaled
-- **FEV1**: Volume of air exhaled in the first second
-- **FEV1/FVC Ratio**: Important diagnostic indicator for obstructive and restrictive lung diseases
-  - Normal values: 70-80% or higher
-  - Lower values may indicate obstructive diseases (asthma, COPD)
+| Condition | Typical FEV1/FVC Ratio |
+|-----------|------------------------|
+| Normal | > 70-80% |
+| Obstructive (e.g., COPD, asthma) | < 70% |
+| Restrictive (e.g., pulmonary fibrosis) | Normal or increased |
 
-## Interpreting Results
+## 🚀 Getting Started
 
-## Troubleshooting
+1. Connect the hardware components according to the pin configuration in the code
+2. Upload the code to your Arduino board
+3. Open serial monitor at 9600 baud rate for detailed readings
+4. Press the button to initiate the test
+5. Exhale forcefully through the mouthpiece for at least 6 seconds
+6. Read the results on the LCD display and serial monitor
 
-## References
+## 📜 Code Highlights
+
+```c
+// Flow rate calculation
+flowRate = (pulseCount / calibrationFactor) * (1000.0 / 250.0);
+
+// FEV1 recording at exactly 1 second
+if (!fev1_recorded && (elapsed >= 1000)) {
+  fev1_volume = totalMilliLitres;
+  fev1_recorded = true;
+}
+
+// FEV1/FVC ratio calculation
+float ratio = (fvc > 0) ? (fev1 / fvc) * 100.0 : 0;
+```
+
+## 📝 Notes
+
+- For accurate results, maintain proper posture and seal lips tightly around the mouthpiece
+- Clean and sanitize the mouthpiece between users
+- Calibration may be required for precise measurements
+
+## 📚 References
+
+- American Thoracic Society guidelines for spirometry
+- Miller MR, et al. Standardisation of spirometry. Eur Respir J. 2005;26(2):319-38
+
+---
+
+<div align="center">
+  <p>Developed as part of Medical Equipment Course | SBME 2023</p>
+</div>
