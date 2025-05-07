@@ -23,8 +23,8 @@ This project implements a digital spirometer using Arduino for measuring and ana
 
 <div align="center">
   <p>
-    <a href="https://youtu.be/your-video-link-here">
-      <img src="./images/video-thumbnail.jpg" alt="Demonstration Video" width="600"/>
+    <a href="https://github.com/MostafaMousaaa/Intelligent-Respiratory-Monitoring-Spirometery/blob/main/spirovideo.mp4">
+      <img src="https://github.com/MostafaMousaaa/Intelligent-Respiratory-Monitoring-Spirometery/blob/main/Img.png" alt="Demonstration Video" width="600"/>
     </a><br>
     <i>Click to watch the demonstration video</i>
   </p>
