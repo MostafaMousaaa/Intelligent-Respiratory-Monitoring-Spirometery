@@ -12,23 +12,23 @@
 
 ## 📋 Table of Contents
 
-- [Overview](#-overview)
-- [Demonstration](#-demonstration)
-- [Features](#-features)
-- [Clinical Significance](#-clinical-significance)
-- [Components Required](#-components-required)
-- [Hardware Setup](#-hardware-setup)
-- [Software Setup](#-software-setup)
-- [How It Works](#️-how-it-works)
-- [Getting Started](#-getting-started)
-- [Code Highlights](#-code-highlights)
-- [Important Considerations](#-important-considerations)
-- [Future Enhancements](#-future-enhancements)
-- [Team Members](#-team-members)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [References](#-references)
-- [Disclaimer](#-disclaimer)
+- [🌟 Overview](#-overview)
+- [🎬 Demonstration](#-demonstration)
+- [✨ Features](#-features)
+- [📊 Clinical Significance](#-clinical-significance)
+- [🛠️ Components Required](#-components-required)
+- [🔌 Hardware Setup](#-hardware-setup)
+- [💻 Software Setup](#-software-setup)
+- [⚙️ How It Works](#️-how-it-works)
+- [🚀 Getting Started](#-getting-started)
+- [📜 Code Highlights](#-code-highlights)
+- [📝 Important Considerations](#-important-considerations)
+- [🔮 Future Enhancements](#-future-enhancements)
+- [👥 Team Members](#-team-members)
+- [🤝 Contributing](#-contributing)
+- [📜 License](#-license)
+- [📚 References](#-references)
+- [⚠️ Disclaimer](#-disclaimer)
 
 ## 🌟 Overview
 
@@ -74,18 +74,21 @@ The FEV1/FVC ratio helps in diagnosing:
 
 ## 🛠️ Components Required
 
--   Arduino Uno/Nano (or compatible microcontroller)
--   Flow sensor (e.g., YF-S201 or similar, with pulse output)
--   16x2 LCD Display (with I2C module recommended for simpler wiring)
--   LEDs:
-    -   1 x Green LED (for indicating test readiness/completion)
-    -   1 x Red LED (for indicating test in progress/error)
--   Buzzer (5V)
--   Pushbutton (momentary)
--   Resistors (e.g., 220Ω for LEDs, 10kΩ for pushbutton pulldown if needed)
--   Breadboard and jumper wires
--   Disposable mouthpiece (ensure hygienic use)
--   Power supply for Arduino (USB or external)
+| Component                                  | Quantity | Notes                                                                 |
+|--------------------------------------------|----------|-----------------------------------------------------------------------|
+| Arduino Uno/Nano (or compatible)           | 1        | Microcontroller                                                       |
+| Flow Sensor (e.g., YF-S201)                | 1        | Pulse output type                                                     |
+| 16x2 LCD Display                           | 1        | I2C module recommended for simpler wiring                             |
+| Green LED                                  | 1        | For test readiness/completion indication                              |
+| Red LED                                    | 1        | For test in progress/error indication                                 |
+| Buzzer (5V)                                | 1        | Auditory feedback                                                     |
+| Pushbutton (momentary)                     | 1        | Test initiation                                                       |
+| Resistors (220Ω)                           | 2+       | Current limiting for LEDs (adjust as needed)                          |
+| Resistors (10kΩ)                           | 1 (opt)  | For pushbutton pulldown (if not using internal pull-up)             |
+| Breadboard                                 | 1        | Prototyping                                                           |
+| Jumper Wires                               | Several  | Connections                                                           |
+| Disposable Mouthpiece                      | Several  | Ensure hygienic use                                                   |
+| Power Supply for Arduino                   | 1        | USB or external                                                       |
 
 ## 🔌 Hardware Setup
 
@@ -253,5 +256,10 @@ This Arduino-based Digital Spirometer is an educational and experimental project
 
 <div align="center">
   <p>Developed as part of the Medical Equipment Course | SBME 2026</p>
-  <p>Contact: [Your Name/Email (Optional)]</p>
+  <p>
+-   Mostafa Mousa
+-   Amaar Yasser
+-   Ahmed Adeil
+-   Zeyad Wael
+-   Hussein Mohamed</p>
 </div>
