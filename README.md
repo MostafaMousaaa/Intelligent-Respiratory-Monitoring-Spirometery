@@ -1,4 +1,6 @@
-# Electronic Spirometer Project
+# Arduino Spirometer Project
+
+A DIY spirometer implementation using Arduino for measuring lung function parameters including FVC, FEV1, and FEV1/FVC ratio.
 
 ![Version](https://img.shields.io/badge/version-1.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -10,11 +12,13 @@ This project implements an Arduino-based electronic spirometer that measures key
 - [Components](#components)
 - [Circuit Diagram](#circuit-diagram)
 - [How It Works](#how-it-works)
+- [Normal Values Reference](#normal-values-reference)
+- [Typical Spirometry Graphs](#typical-spirometry-graphs)
 - [Installation](#installation)
 - [Clinical Significance](#clinical-significance)
 - [Interpreting Results](#interpreting-results)
 - [Troubleshooting](#troubleshooting)
-- [References](#references)
+- [References]
 
 ## Components
 - Arduino board
@@ -35,6 +39,28 @@ This project implements an Arduino-based electronic spirometer that measures key
 5. When measurement completes, the green LED lights up and a confirmation beep sounds
 6. Results (FVC, FEV1, and FEV1/FVC ratio) are displayed in the serial monitor
 7. System resets after 2 seconds of no flow, ready for the next test
+
+## Normal Values Reference
+
+### Adult Male Reference Values
+
+| Parameter | Normal | Mild | Moderate | Severe |
+|-----------|--------|------|----------|--------|
+| FVC (L)   | >4.0   | 3.0-4.0 | 2.0-3.0 | <2.0   |
+| FEV1 (L)  | >3.0   | 2.0-3.0 | 1.0-2.0 | <1.0   |
+| FEV1/FVC (%) | >75 | 60-75 | 40-60 | <40    |
+
+### Adult Female Reference Values
+
+| Parameter | Normal | Mild | Moderate | Severe |
+|-----------|--------|------|----------|--------|
+| FVC (L)   | >3.0   | 2.0-3.0 | 1.5-2.0 | <1.5   |
+| FEV1 (L)  | >2.5   | 1.5-2.5 | 1.0-1.5 | <1.0   |
+| FEV1/FVC (%) | >80 | 65-80 | 45-65 | <45    |
+
+## Typical Spirometry Graphs
+
+### Normal Spirogram
 
 ## Installation
 
