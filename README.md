@@ -17,6 +17,7 @@
 - [📊 Clinical Significance](#-clinical-significance)
 - [🛠️ Components Required](#-components-required)
 - [⚙️ How It Works](#️-how-it-works)
+- [📐 Parameters & Mathematical Equations](#-parameters--mathematical-equations)
 - [🚀 Added Feature: Enhanced Data Logging and Visualization](#-added-feature-enhanced-data-logging-and-visualization)
 
 ## 🌟 Overview
@@ -116,6 +117,57 @@ flowchart TD
 - **FVC:** Total volume exhaled during the test period
 - **FEV1/FVC Ratio:** `(FEV1 / FVC) × 100%`
 
+## 📐 Parameters & Mathematical Equations
+
+This section describes the key spirometric parameters measured by our device and the mathematical equations used to calculate them.
+
+### Flow Rate Measurement
+
+The instantaneous airflow rate is calculated from the flow sensor's pulse frequency:
+
+$$\text{Flow Rate} = K \times \text{Pulse Frequency}$$
+
+Where:
+- $K$ is the calibration factor specific to the flow sensor (typically in L/min per Hz)
+- Pulse Frequency is measured in Hz (pulses per second)
+
+### Volume Calculation
+
+Volume is calculated by integrating flow rate over time:
+
+$$V(t) = \int_{0}^{t} \text{Flow Rate}(\tau) \, d\tau$$
+
+In discrete implementation:
+
+$$V(t_n) = \sum_{i=0}^{n} \text{Flow Rate}(t_i) \times \Delta t_i$$
+
+Where $\Delta t_i$ is the sampling time interval.
+
+### Key Spirometric Parameters
+
+| Parameter | Definition | Calculation |
+|-----------|------------|-------------|
+| FVC | Forced Vital Capacity | $$\text{FVC} = V(t_{\text{end}})$$ |
+| FEV1 | Forced Expiratory Volume in 1 Second | $$\text{FEV1} = V(t = 1\text{ second})$$ |
+| FEV1/FVC | Ratio of FEV1 to FVC | $$\text{FEV1/FVC} = \frac{\text{FEV1}}{\text{FVC}} \times 100\%$$ |
+
+### Calibration & Correction
+
+The raw sensor readings are calibrated using a linear correction factor determined through comparison with a reference device:
+
+$$\text{Flow}_{\text{corrected}} = a \times \text{Flow}_{\text{raw}} + b$$
+
+Where $a$ and $b$ are calibration constants determined experimentally.
+
+Temperature correction for gas volumes (BTPS correction):
+
+$$V_{\text{BTPS}} = V_{\text{measured}} \times \frac{310 \text{K}}{273 \text{K} + T_{\text{ambient}}} \times \frac{P_{\text{ambient}} - P_{\text{H2O}}}{P_{\text{ambient}} - 47 \text{mmHg}}$$
+
+Where:
+- $T_{\text{ambient}}$ is the ambient temperature in °C
+- $P_{\text{ambient}}$ is the ambient pressure in mmHg
+- $P_{\text{H2O}}$ is the water vapor pressure at ambient temperature
+
 ## 🚀 Added Feature: Enhanced Data Logging and Visualization
 
 <div align="center">
@@ -155,5 +207,6 @@ This added feature significantly elevates the prototype from a simple measuremen
 -   Amaar Yasser
 -   Ahmed Adeil
 -   Zeyad Wael
--   Hussein Mohamed</p>
+-   Hussein Mohamed
+</p>
 </div>
