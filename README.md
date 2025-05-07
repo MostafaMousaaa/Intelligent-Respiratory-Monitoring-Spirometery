@@ -42,7 +42,7 @@ This project presents an Arduino-based digital spirometer designed for measuring
   </p>
   <p>
     <video width="600" controls>
-      <source src="https://github.com/user-attachments/assets/9213ecd2-90bc-4221-8fc7-90098d8d4f6e" type="video/mp4"> <!-- Adjust type="video/mp4" if your video is not in MP4 format -->
+      <source src="https://github.com/user-attachments/assets/9213ecd2-90bc-4221-8fc7-90098d8d4f6e"> <!-- Adjust type="video/mp4" if your video is not in MP4 format -->
       Your browser does not support the video tag. 
       Alternatively, watch the video <a href="https://github.com/user-attachments/assets/9213ecd2-90bc-4221-8fc7-90098d8d4f6e">here</a>.
     </video>
